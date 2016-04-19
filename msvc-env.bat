@@ -1,4 +1,4 @@
-@echo off
+rem @echo off
 
 rem Put your own settings at msvc-env-local.bat
 if exist msvc-env-local.bat call msvc-env-local.bat

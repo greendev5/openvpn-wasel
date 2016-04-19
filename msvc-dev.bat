@@ -4,14 +4,7 @@ setlocal
 cd /d %0\..
 call msvc-env.bat
 
-if exist "%VSHOME%\Common7\IDE\VCExpress.exe" (
-	set IDE=%VSHOME%\Common7\IDE\VCExpress.exe
-) else if exist "%VSHOME%\Common7\IDE\devenv.exe" (
-	set IDE=%VSHOME%\Common7\IDE\devenv.exe
-) else (
-	echo "Cannot detect visual studio environment"
-	goto error
-)
+set IDE=%VCHOME%\..\Common7\IDE\devenv.exe
 start "" "%IDE%" "%SOLUTION%"
 
 exit /b 0

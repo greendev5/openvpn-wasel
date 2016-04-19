@@ -1,4 +1,4 @@
-@echo off
+rem @echo off
 rem Copyright (C) 2008-2012 Alon Bar-Lev <alon.barlev@gmail.com>
 
 @rem this stupid command needed for SetEnv.cmd to operate
@@ -10,14 +10,7 @@ call msvc-env.bat
 set PLATFORMS=Win32
 set CONFIGURATIONS=Release
 
-if exist "%VCHOME%\vcvarsall.bat" (
-	call "%VCHOME%\vcvarsall.bat"
-) else if exist "%VCHOME%\bin\vcvars32.bat" (
-	call "%VCHOME%\bin\vcvars32.bat"
-) else (
-	echo Cannot detect visual studio
-	goto error
-)
+call "%VCHOME%\bin\vcvars32.bat"
 
 msbuild /help > nul 2>&1
 if errorlevel 1 set DO_VCBUILD=1
